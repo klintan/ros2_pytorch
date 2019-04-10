@@ -1,6 +1,6 @@
 # ROS2 PyTorch node
 
-Run a PyTorch model in C++ in ROS2.
+Run a PyTorch model in C++ in ROS2. A template node to be able to adapt to whatever model you want to run, for instance object detection of people and bikes.
 
 
 Features
@@ -21,10 +21,23 @@ Add Libtorch to your `CMAKE_PREFIX_PATH` env variable, like so:
 export CMAKE_PREFIX_PATH=$CMAKE_PREFIX_PATH:/path/to/libtorch
 ```
 
+Add CV_Bridge as well if its not already on your `CMAKE_PREFIX_PATH`
+
+
+`export CMAKE_PREFIX_PATH=$CMAKE_PREFIX_PATH:<path>` 
+
+(If its built using `colcon build` this is the path to `cv_bridge` folder in the `install` folder.)
 
 Run
 
 `colcon build` 
+
+
+Unfortunately you also have to copy two libs from https://github.com/intel/mkl-dnn/releases into the libtorch lib folder.
+
+`libmklml.dylib`
+`libiomp5.dylib`
+
 
 ## Usage
 

@@ -7,6 +7,7 @@ if(NOT CMAKE_CXX_STANDARD)
     set(CMAKE_CXX_STANDARD 14)
 endif()
 
+set(CMAKE_PREFIX_PATH ./libtorch)
 
 find_package(ament_cmake REQUIRED)
 find_package(example_interfaces REQUIRED)
@@ -17,6 +18,7 @@ find_package(rmw REQUIRED)
 find_package(rmw_opensplice_cpp REQUIRED)
 find_package(std_msgs REQUIRED)
 find_package(sensor_msgs REQUIRED)
+find_package(cv_bridge REQUIRED)
 find_package(Torch REQUIRED)
 
 find_package(OpenCV REQUIRED)
@@ -32,6 +34,7 @@ function(custom_executable target)
     "sensor_msgs"
     "rcutils"
     "std_msgs"
+    "cv_bridge"
     "OpenCV")
     install(TARGETS ${target}
     DESTINATION lib/${PROJECT_NAME})
